@@ -1,0 +1,80 @@
+<div class="container">
+
+  <table class="table table-bordered table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>Bike ID</th>
+        <th>Model</th>
+        <th>Manufacturer</th>
+        <th>Engine No</th>
+        <th>Chassis No</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let motorbike of allMotorBikesArr">
+      <td>{{motorbike.bikeId}}
+      </td>
+      <td>
+        {{motorbike.model}}
+      </td>
+      <td>
+        {{motorbike.manufacturer}}
+      </td>
+      <td>
+        {{motorbike.engineNo}}
+      </td>
+      <td>
+        {{motorbike.chassisNo}}
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="loadToBootstrapModel(motorbike)" data-toggle="modal" data-target="#myModal">Modify</button> &nbsp;
+        <button class="btn btn-danger" (click)="deleteMotorBike(motorbike)">Delete</button>
+      </td>
+    </tr>
+
+  </table>
+
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog  modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <div> Modifing MotorBike ID: {{modifiableFormData.bikeId}}</div>
+        <div><button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <div class="controls">
+                
+                <input type="text" [(ngModel)]="modifiableFormData.bikeId">
+            </div><div class="controls">
+                
+                <input type="text" [(ngModel)]="modifiableFormData.model">
+            </div><div class="controls">
+                
+                <input type="text" [(ngModel)]="modifiableFormData.manufacturer">
+            </div><div class="controls">
+                
+                <input type="text" [(ngModel)]="modifiableFormData.engineNo">
+            </div><div class="controls">
+                
+                <input type="text" [(ngModel)]="modifiableFormData.chassisNo">
+            </div>
+          <div class="controls" style="color:green">
+          <strong> {{modifyMessage}}</strong>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" (click)="modifyMotorBike(modifiableFormData)">Modify</button> &nbsp;
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

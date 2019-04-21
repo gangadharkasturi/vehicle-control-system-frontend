@@ -1,0 +1,11 @@
+<div class="container" *ngIf="_isLoggedIn | async as isLoggedIn">
+  <ul>
+    <li><a [routerLink]="['/user']">My Profile</a></li>
+    <li><a [routerLink]="['/vehicleList']">Vehicle List</a></li>
+    <li><a [routerLink]="['/addNewBike']" >Add New</a></li>
+    <li style="float:right"><a class="active"  (click)="onLogOut()">LogOut</a></li>
+  </ul>
+
+ <hr>
+</div>
+
